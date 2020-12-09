@@ -1,0 +1,17 @@
+.modal-wrap {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.modal-box {
+    position: absolute;
+    padding: 20px;
+    color: #000;
+    text-align: center;
+    background-color: #ccc;
+    z-index: 40;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}

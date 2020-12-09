@@ -1,0 +1,46 @@
+.player-box > p {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.two-players.position-1 {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.two-players.position-2 {
+    position: absolute;
+    top: 20px;
+    left: 40%;
+    transform: translateX(-50%);
+}
+
+.position-1 {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.position-2 {
+    position: absolute;
+    left: 20px;
+    top: 40%;
+    transform: translateY(-50%);
+}
+
+.position-3 {
+    position: absolute;
+    top: 20px;
+    left: 40%;
+    transform: translateX(-50%);
+}
+
+.position-4 {
+    position: absolute;
+    left: 77%;
+    top: 40%;
+    transform: translateY(-50%);
+}
