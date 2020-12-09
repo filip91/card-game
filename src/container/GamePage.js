@@ -33,7 +33,18 @@ class GamePage extends Component {
       showWinners,
     } = this.state;
     if (isGameOver) {
-      return <Modal backdrop btn text={showWinners} />;
+      return (
+        <Modal
+          backdrop
+          btn
+          text={showWinners
+            .split(".")
+            .filter((item) => item)
+            .map((item) => (
+              <p>{item}</p>
+            ))}
+        />
+      );
     } else if (isRoundOver) {
       return (
         <Modal
@@ -124,11 +135,11 @@ class GamePage extends Component {
     for (let i = 0; i < indexOfWinnerInGame.length; i++) {
       let showWinner = "";
       if (indexOfWinnerInGame[i] === 0) {
-        showWinner = "You are winner in this game.\n";
+        showWinner = "You are winner in this game.";
       } else {
         showWinner = `${
           players[indexOfWinnerInGame[i]].name
-        } is winner in this game.\n`;
+        } is winner in this game.`;
       }
       showWinnersUpdate = showWinnersUpdate.concat(showWinner);
       showWinner = "";

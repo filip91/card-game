@@ -8,7 +8,7 @@ const Modal = ({ backdrop, text, btn }) => {
     <div className="modal-wrap">
       {backdrop && <Backdrop />}
       <div className="modal-box">
-        <p>{text}</p>
+        <div>{text}</div>
         {btn && (
           <Link to="/" className="btn">
             Back to home
