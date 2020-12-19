@@ -10,13 +10,11 @@ describe("App", () => {
       <App />
     </Root>
   );
-  // app.find(".wrap .box a.btn-1").simulate("click");
-  // app.update();
-  it("should render home page", () => {
+  it("should contain home page", () => {
     expect(app.find(HomePage)).toBeTruthy();
   });
 
-  it("should render game cards", () => {
+  it("should contain game cards", () => {
     expect(app.find(GameCards)).toBeTruthy();
   });
 });

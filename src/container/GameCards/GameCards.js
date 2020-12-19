@@ -4,7 +4,7 @@ import Modal from "../../components/Modal/Modal";
 import PlayerBox from "../../components/PlayerBox/PlayerBox";
 import Spinner from "../../components/Spinner/Spinner";
 import { getCards } from "../../redux/actions/cards";
-import ErrorHandler from "../ErrorHandler/ErrorHandler";
+import ErrorHandler from "../../components/ErrorHandler/ErrorHandler";
 import "./GameCards.css";
 
 class GameCards extends Component {
