@@ -3,15 +3,15 @@ import Backdrop from "../Backdrop/Backdrop";
 import { Link } from "react-router-dom";
 import "./Modal.css";
 
-const Modal = ({ backdrop, text, btn }) => {
+const Modal = ({ backdrop, text, btn, btnText, ...linkProps }) => {
   return (
     <div className="modal-wrap">
       {backdrop && <Backdrop />}
       <div className="modal-box">
         <div>{text}</div>
         {btn && (
-          <Link to="/" className="btn">
-            Back to home
+          <Link {...linkProps} className="btn">
+            {btnText}
           </Link>
         )}
       </div>

@@ -5,11 +5,9 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 import { BrowserRouter } from "react-router-dom";
 
-const store = createStore(reducers, applyMiddleware(thunk, logger));
-
 const Root = ({ children }) => {
   return (
-    <Provider store={store}>
+    <Provider store={createStore(reducers, applyMiddleware(thunk, logger))}>
       <BrowserRouter>{children}</BrowserRouter>
     </Provider>
   );

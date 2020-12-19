@@ -9,6 +9,7 @@ const HomePage = ({ getNumberOfPlayers }) => {
   const renderButtons = () =>
     buttonsContent.map((item, index) => (
       <Button
+        className={`btn-${index + 1}`}
         key={index}
         children={item.text}
         pathTo="game"

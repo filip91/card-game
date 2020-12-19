@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Modal from "../components/Modal/Modal";
-import PlayerBox from "../components/PlayerBox/PlayerBox";
-import Spinner from "../components/Spinner/Spinner";
-import { getCards } from "../redux/actions/cards";
-import "./GamePage.css";
+import Modal from "../../components/Modal/Modal";
+import PlayerBox from "../../components/PlayerBox/PlayerBox";
+import Spinner from "../../components/Spinner/Spinner";
+import { getCards } from "../../redux/actions/cards";
+import ErrorHandler from "../ErrorHandler/ErrorHandler";
+import "./GameCards.css";
 
-class GamePage extends Component {
+class GameCards extends Component {
   state = {
     players: [
       { name: "me", score: 0, cards: [] },
@@ -37,12 +38,11 @@ class GamePage extends Component {
         <Modal
           backdrop
           btn
-          text={showWinners
-            .split(".")
-            .filter((item) => item)
-            .map((item) => (
-              <p>{item}</p>
-            ))}
+          btnText={"Back to home"}
+          to="/"
+          text={showWinners.split(".").map((item, index) => (
+            <p key={index}>{item}</p>
+          ))}
         />
       );
     } else if (isRoundOver) {
@@ -120,11 +120,11 @@ class GamePage extends Component {
     }
 
     if (bool) {
-      items.filter((item, index) => {
-        if (item === maxNumber) {
-          indexOfWinnerInGame.push(index);
+      for (let i = 0; i < items.length; i++) {
+        if (items[i] === maxNumber) {
+          indexOfWinnerInGame.push(i);
         }
-      });
+      }
     }
     this.setState({ indexOfWinnerInRound, indexOfWinnerInGame });
   };
@@ -217,14 +217,18 @@ class GamePage extends Component {
         key={index}
         index={index}
         addSelectedCard={this.addToSelectedCards}
-        indexOfPlayer={this.state.indexOfPlayer}
       />
     ));
   };
 
   renderSelectedCards = () =>
     this.state.selectedCards.map((card) => (
-      <img src={card.image} style={{ width: "80px" }} key={card.code} />
+      <img
+        src={card.image}
+        style={{ width: "80px" }}
+        key={card.code}
+        alt="card"
+      />
     ));
 
   componentDidUpdate(prevProps, prevState) {
@@ -260,7 +264,12 @@ class GamePage extends Component {
       return <Spinner />;
     }
     return error ? (
-      <Modal text={error} />
+      <Modal
+        text={<ErrorHandler />}
+        btn
+        btnText={"Back to home and try again"}
+        to="/"
+      />
     ) : (
       <div className="game-wrapp">
         {this.renderModal()}
@@ -301,4 +310,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(GamePage);
+export default connect(mapStateToProps, mapDispatchToProps)(GameCards);

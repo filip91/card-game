@@ -15,14 +15,12 @@ export const numberOfCardsFailure = (err) => ({
   payload: err,
 });
 
-export const getCards = (num) => {
-  return (dispatch) => {
-    dispatch(numberOfCardsRequest());
+export const getCards = (num) => (dispatch) => {
+  dispatch(numberOfCardsRequest());
 
-    API.get(`/draw/?count=${num * 10}`)
-      .then((res) => dispatch(numberOfCardsSuccess(res.data)))
-      .catch((err) => dispatch(numberOfCardsFailure(err.message)));
-  };
+  API.get(`/draw/?count=${num * 10}`)
+    .then((res) => dispatch(numberOfCardsSuccess(res.data)))
+    .catch((err) => dispatch(numberOfCardsFailure(err.response)));
 };
 
 export const getNumberOfPlayers = (number) => ({

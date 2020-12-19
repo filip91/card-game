@@ -18,7 +18,7 @@ const PlayerBox = ({
           : `player-box two-players position-${index + 1}`
       }
     >
-      <p className="palyer-name">{name}</p>
+      <p className="player-name">{name}</p>
       <p className="player-score">Score: {score}</p>
       <div className="player-cards">
         {cards.map((card, nmbCard) =>
@@ -28,6 +28,7 @@ const PlayerBox = ({
               key={card.code}
               style={{ width: 70, cursor: "pointer" }}
               onClick={() => addSelectedCard(card)}
+              alt="card-image"
             />
           ) : (
             <img
@@ -35,6 +36,7 @@ const PlayerBox = ({
               key={card.code}
               src={CardImage}
               style={{ width: 80, position: "absolute", left: 30 * nmbCard }}
+              alt="card-image"
             />
           )
         )}

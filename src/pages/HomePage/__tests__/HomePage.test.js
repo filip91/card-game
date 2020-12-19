@@ -2,23 +2,15 @@ import React from "react";
 import { mount } from "enzyme";
 import HomePage from "../HomePage";
 import Root from "../../../root";
+import Button from "../../../components/Button/Button";
 
-let home;
-
-beforeEach(() => {
-  home = mount(
+describe("<HomePage />", () => {
+  const wrapper = mount(
     <Root>
       <HomePage />
     </Root>
   );
-});
-
-afterEach(() => {
-  home.unmount();
-});
-
-describe("<HomePage />", () => {
-  it("renders three buttons component", () => {
-    expect(home.find("a")).toHaveLength(3);
+  it("renders three <Button /> components", () => {
+    expect(wrapper.find(Button)).toHaveLength(3);
   });
 });

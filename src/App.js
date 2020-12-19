@@ -1,14 +1,14 @@
-import React, { Fragment } from "react";
-import { Redirect, Route, BrowserRouter, Switch } from "react-router-dom";
-import GamePage from "./container/GamePage";
+import React from "react";
+import { Route } from "react-router-dom";
+import GameCards from "./container/GameCards/GameCards";
 import HomePage from "./pages/HomePage/HomePage";
 
 const App = () => {
   return (
-    <Fragment>
+    <div className="container">
       <Route component={HomePage} path="/" exact />
-      <Route component={GamePage} path="/game" />
-    </Fragment>
+      <Route component={GameCards} path="/game" />
+    </div>
   );
 };
 
