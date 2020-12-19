@@ -28,7 +28,7 @@ const PlayerBox = ({
               key={card.code}
               style={{ width: 70, cursor: "pointer" }}
               onClick={() => addSelectedCard(card)}
-              alt="card-image"
+              alt={`card-${nmbCard}`}
             />
           ) : (
             <img
@@ -36,7 +36,7 @@ const PlayerBox = ({
               key={card.code}
               src={CardImage}
               style={{ width: 80, position: "absolute", left: 30 * nmbCard }}
-              alt="card-image"
+              alt={`card-${nmbCard}`}
             />
           )
         )}

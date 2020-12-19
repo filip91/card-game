@@ -7,7 +7,7 @@ const initialState = {
   err: null,
 };
 
-export default (state = initialState, action) => {
+const cardsReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionType.SELECTED_NUMBER_OF_PLAYERS:
       return { ...state, numberOfPlayers: action.payload };
@@ -25,3 +25,5 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+export default cardsReducer;
